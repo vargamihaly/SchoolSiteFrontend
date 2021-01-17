@@ -1,0 +1,31 @@
+<h1>Új hír létrehozása</h1>
+<hr>
+<div class="col-md-6">
+  <form #newBlogPostForm="ngForm" (ngSubmit)="saveBlogPost(newBlogPostForm.value)" autocomplete="off" novalidate>
+    <div class="form-group"
+      [ngClass]="{'error': newBlogPostForm.controls.Title?.invalid && newBlogPostForm.controls.Title?.touched}">
+      <label for="blogPostTitle">Cím <title></title>:</label>
+      <em *ngIf="newBlogPostForm.controls.Title?.invalid && (newBlogPostForm.controls.Title?.touched)">Required</em>
+      <input [(ngModel)]="blogPost.Title" name="Title" required id="Title" type="text" class="form-control"
+        placeholder="A poszt címe" />
+    </div>
+    <div class="form-group"
+      [ngClass]="{'error': newBlogPostForm.controls.Content?.invalid && newBlogPostForm.controls.Content?.touched}">
+      <label for="blogPostContent">Tartalom <title></title>:</label>
+      <em *ngIf="newBlogPostForm.controls.Content?.invalid && (newBlogPostForm.controls.Content?.touched)">Required</em>
+      <input [(ngModel)]="blogPost.Content" name="Content" required id="Content" type="text" class="form-control"
+        placeholder="A poszt tartalma" />
+    </div>
+    <div class="form-group"
+      [ngClass]="{'error': newBlogPostForm.controls.IsObsolete?.invalid && newBlogPostForm.controls.IsObsolete?.touched}">
+      <label for="blogPostIsObsolete">Aktuális:</label>
+      <em
+        *ngIf="newBlogPostForm.controls.IsObsolete?.invalid && (newBlogPostForm.controls.IsObsolete?.touched)">Required</em>
+      <input [(ngModel)]="blogPost.IsObsolete" name="IsObsolete" required id="IsObsolete" type="text"
+        class="form-control" placeholder="False" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Mentés</button>
+    <button type="button" [disabled]="newBlogPostForm.invalid" class="btn btn-default" (click)="cancel()">Mégse</button>
+  </form>
+</div>

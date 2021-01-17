@@ -1,0 +1,52 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<nav class="navbar navbar-expand-lg navbar-inverse ">
+  <div class="navbar-header navbar-right">
+    <ul class="nav navbar-nav">
+    </ul>
+  </div>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a *ngIf="!auth.isAuthenticated()" [routerLink]="['user/login']">Login</a>
+      <a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']"> Üdv, {{auth.currentUser.userName}} </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/">Kezdőoldal</a></li>
+      <li><a [routerLink]="['/news']" routerLinkActive="active">Hírek</a></li>
+      <li><a [routerLink]="['/nevadonk']" routerLinkActive="active">Névadónk</a></li>
+      <li><a [routerLink]="['/intezmenyegysegek']" routerLinkActive="active">Intézményegységek</a></li>
+      <li><a [routerLink]="['/vezetoseg']" routerLinkActive="active">Vezetőség</a></li>
+      <li><a [routerLink]="['/palyazatok']" routerLinkActive="active">Pályázatok</a></li>
+      <li><a [routerLink]="['/szakkorok']" routerLinkActive="active">Szakkörök</a></li>
+      <li><a [routerLink]="['/dokumentumok']" routerLinkActive="active">Dokumentumok</a></li>
+      <li><a [routerLink]="['/kapcsolat']" routerLinkActive="active">Kapcsolat</a></li>
+      <li><a [routerLink]="['/beiratkozas']" routerLinkActive="active">Beiratkozás</a></li>
+      <li><a [routerLink]="['/alapitvany']" routerLinkActive="active">Alapítvány</a></li>
+      <li><a [routerLink]="['/diakonkormanyzat']" routerLinkActive="active">Diákönkormányzat</a></li>
+      
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hallgatóknak
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <!-- <li><a href="//sulinet..">E-napló belépés</a></li> -->
+          <li><a [routerLink]="['/csengetesi-rend']" routerLinkActive="active">Csengetési rend</a></li>
+          <li><a [routerLink]="['/dokumentumok']" routerLinkActive="active">Dokumentumok</a></li>
+          <li><a [routerLink]="['/etkezes']" routerLinkActive="active">Étkezés</a></li> -->
+          <li><a [routerLink]="['/esemenynaptar']" routerLinkActive="active">Eseménynaptár</a></li>
+        </ul>
+    </ul>
+  </div>
+  <button tpe="button" pButton label="primengButton"></button>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
